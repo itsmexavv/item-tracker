@@ -1,0 +1,14 @@
+{
+  "name": "item-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline item tracker: Bluetooth left-behind alarms, last-seen spots, walk-back compass and map.",
+  "type": "module",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "test": "node --test",
+    "check": "node tools/check-precache.mjs",
+    "smoke": "node tools/smoke.mjs",
+    "icons": "node tools/make-icons.mjs"
+  }
+}

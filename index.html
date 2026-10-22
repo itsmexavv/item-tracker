@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Item Tracker</title>
+  <meta name="description" content="Find your things: Bluetooth left-behind alarms, last-seen spots and a walk-back compass. Works offline.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Tracker">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/app.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1 id="title">Items</h1>
+    <button id="install-btn" class="small primary" data-action="install" hidden>Install app</button>
+  </header>
+  <div id="banner" class="banner" role="status" hidden></div>
+
+  <main>
+    <section id="view-items" class="view page" aria-label="Items"></section>
+    <section id="view-map" class="view mapview" aria-label="Map" hidden>
+      <div id="map"></div>
+      <p id="map-error" class="map-error" hidden>The map couldn't load. Connect to the internet and open the Map tab again.</p>
+      <div id="crosshair" class="crosshair" aria-hidden="true" hidden></div>
+      <div id="map-chip" class="map-chip" hidden>Offline · showing saved map areas</div>
+      <div id="place-bar" class="place-bar" hidden>
+        <span id="place-text"></span>
+        <div class="place-actions">
+          <button class="ghost" data-action="place-cancel">Cancel</button>
+          <button class="primary" id="place-ok" data-action="place-confirm">Save spot here</button>
+        </div>
+      </div>
+    </section>
+    <section id="view-settings" class="view page" aria-label="Settings" hidden></section>
+  </main>
+
+  <nav class="tabbar" aria-label="Sections">
+    <a href="#/items" data-tab="items">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.3"/><circle cx="4.5" cy="12" r="1.3"/><circle cx="4.5" cy="18" r="1.3"/></svg>
+      <span>Items</span>
+    </a>
+    <a href="#/map" data-tab="map">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5 9 4l6 2.5L21 4v13.5L15 20l-6-2.5L3 20z"/><path d="M9 4v13.5M15 6.5V20"/></svg>
+      <span>Map</span>
+    </a>
+    <a href="#/settings" data-tab="settings">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+      <span>Settings</span>
+    </a>
+  </nav>
+
+  <section id="view-find" class="find" aria-label="Find item" hidden></section>
+  <dialog id="sheet" class="sheet" aria-label="Item"></dialog>
+  <dialog id="alarm-dialog" class="alarm" aria-label="Left-behind alarm"></dialog>
+  <dialog id="ring-dialog" class="alarm ring" aria-label="Find my phone"></dialog>
+  <div id="toast" class="toast" popover="manual" role="status" aria-live="polite"></div>
+  <noscript><p class="page">Item Tracker needs JavaScript turned on.</p></noscript>
+</body>
+</html>

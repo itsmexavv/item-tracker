@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.png binary
+# Keep vendored libraries byte-identical to the official release (so their published SRI hashes match).
+vendor/** -text
